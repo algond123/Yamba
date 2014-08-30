@@ -2,7 +2,7 @@ package com.marakana.android.yamba;
 
 import android.os.Bundle;
 
-public class StatusActivity extends SubActivity {
+public class SettingsActivity extends SubActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -11,12 +11,11 @@ public class StatusActivity extends SubActivity {
 		// Check if this activity was created before
 		if (savedInstanceState == null) {
 			// Create a fragment
-			StatusFragment fragment = new StatusFragment();
+			SettingsFragment fragment = new SettingsFragment();
 			getFragmentManager()
 					.beginTransaction()
 					.add(android.R.id.content, fragment,
 							fragment.getClass().getSimpleName()).commit();
 		}
-	}
-
+	};
 }

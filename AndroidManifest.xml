@@ -19,10 +19,21 @@
             android:name="com.marakana.android.yamba.StatusActivity"
             android:label="@string/status_update" >
             <intent-filter>
+                <action android:name="com.marakana.android.yamba.action.tweet" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.marakana.android.yamba.MainActivity" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.marakana.android.yamba.SettingsActivity"
+            android:label="@string/action_settings" >
         </activity>
     </application>
 
