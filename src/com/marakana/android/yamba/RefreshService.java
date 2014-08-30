@@ -3,8 +3,10 @@ package com.marakana.android.yamba;
 import java.util.List;
 
 import android.app.IntentService;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -43,16 +45,34 @@ public class RefreshService extends IntentService {
 		}
 		Log.d(TAG, "onStarted");
 
+		ContentValues values = new ContentValues();
 
 		YambaClient cloud = new YambaClient(username, password);
 		try {
+			int count = 0;
 			List<Status> timeline = cloud.getTimeline(20);
 			for (Status status : timeline) {
+				values.clear();
+				values.put(StatusContract.Column.ID, status.getId());
+				values.put(StatusContract.Column.USER, status.getUser());
+				values.put(StatusContract.Column.MESSAGE, status.getMessage());
+				values.put(StatusContract.Column.CREATED_AT, status
+						.getCreatedAt().getTime());
 
-				Log.d(TAG,
-						String.format("%s: %s", status.getUser(),
-								status.getMessage()));
+				Uri uri = getContentResolver().insert(
+						StatusContract.CONTENT_URI, values);
+				if (uri != null) {
+					count++;
+					Log.d(TAG,
+							String.format("%s: %s", status.getUser(),
+									status.getMessage()));
+				}
+			}
 
+			if (count > 0) {
+				sendBroadcast(new Intent(
+						"com.marakana.android.yamba.action.NEW_STATUSES").putExtra(
+						"count", count));
 			}
 
 		} catch (YambaClientException e) {

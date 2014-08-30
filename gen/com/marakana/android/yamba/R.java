@@ -28,6 +28,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int action_purge=0x7f0a0006;
         public static final int action_refresh=0x7f0a0005;
         public static final int action_settings=0x7f0a0003;
         public static final int action_tweet=0x7f0a0004;
@@ -46,14 +47,15 @@ public final class R {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
         public static final int hello_world=0x7f070002;
-        public static final int interval=0x7f07000d;
-        public static final int interval_summary=0x7f07000e;
+        public static final int interval=0x7f07000e;
+        public static final int interval_summary=0x7f07000f;
         public static final int password=0x7f070009;
         public static final int password_summary=0x7f07000a;
+        public static final int purge=0x7f07000c;
         public static final int refresh=0x7f07000b;
         public static final int status_button_tweet=0x7f070003;
         public static final int status_text_hint=0x7f070004;
-        public static final int status_update=0x7f07000c;
+        public static final int status_update=0x7f07000d;
         public static final int title_activity_main=0x7f070005;
         public static final int tweet=0x7f070006;
         public static final int username=0x7f070007;
@@ -90,6 +92,5 @@ public final class R {
     }
     public static final class xml {
         public static final int settings=0x7f040000;
-        public static final int yamba_widget=0x7f040001;
     }
 }
