@@ -45,7 +45,7 @@
             android:name="com.marakana.android.yamba.StatusProvider"
             android:authorities="com.marakana.android.yamba.StatusProvider"
             android:exported="false" />
-
+        
     </application>
 
 </manifest>
