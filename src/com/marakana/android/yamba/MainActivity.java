@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -32,6 +31,9 @@ public class MainActivity extends Activity {
 			return true;
 		case R.id.action_tweet:
 			startActivity(new Intent("com.marakana.android.yamba.action.tweet"));
+			return true;
+		case R.id.action_refresh:
+			startService(new Intent(this, RefreshService.class));
 			return true;
 		default:
 			return false;

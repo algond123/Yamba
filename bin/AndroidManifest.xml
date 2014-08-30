@@ -35,6 +35,10 @@
             android:name="com.marakana.android.yamba.SettingsActivity"
             android:label="@string/action_settings" >
         </activity>
+
+        <service android:name="com.marakana.android.yamba.RefreshService" >
+        </service>
+
     </application>
 
 </manifest>
